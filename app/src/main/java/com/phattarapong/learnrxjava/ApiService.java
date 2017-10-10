@@ -1,5 +1,6 @@
 package com.phattarapong.learnrxjava;
 
+import io.reactivex.Observable;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
@@ -10,6 +11,6 @@ import retrofit2.http.GET;
 public interface ApiService {
 
     @GET("planets")
-    Call<Planets> getPlanets();
+    Observable<Planets> getPlanets();
 
 }

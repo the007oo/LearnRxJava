@@ -55,11 +55,10 @@ public class PlanetsAdapter extends RecyclerView.Adapter<PlanetsAdapter.ViewHold
 
     class ViewHolder extends RecyclerView.ViewHolder {
         private TextView titleLabel;
-        private CardView cartView;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            titleLabel = (TextView) itemView.findViewById(R.id.titleLabel);
+            titleLabel =  itemView.findViewById(R.id.titleLabel);
         }
     }
 }

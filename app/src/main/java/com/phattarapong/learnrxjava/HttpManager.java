@@ -2,6 +2,7 @@ package com.phattarapong.learnrxjava;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -32,9 +33,11 @@ public class HttpManager {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://swapi.co/api/")
                 .addConverterFactory(GsonConverterFactory.create(gson))
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(client)
                 .build();
         apiService = retrofit.create(ApiService.class);
+
     }
 
     public ApiService getService() {

@@ -10,6 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        jackOptions{enabled true}
     }
     buildTypes {
         release {
@@ -18,12 +19,16 @@ android {
         }
     }
     dexOptions {
-        incremental true
-        javaMaxHeapSize "12GB"
+        javaMaxHeapSize "12g"
         jumboMode true
         maxProcessCount 8
         preDexLibraries false
         threadCount 8
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
@@ -41,6 +46,8 @@ dependencies {
     compile 'com.squareup.okhttp3:logging-interceptor:3.9.0'
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    compile 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+
     testCompile 'junit:junit:4.12'
 
 }
