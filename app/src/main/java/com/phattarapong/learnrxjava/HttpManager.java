@@ -14,6 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class HttpManager {
+
     private ApiService apiService;
 
     private static final HttpManager ourInstance = new HttpManager();

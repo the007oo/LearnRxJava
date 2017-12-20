@@ -11,7 +11,7 @@ import java.util.List;
  * Created by Phattarapong on 10/9/2017.
  */
 
-public class Planets {
+public class Planets implements Parcelable {
 
     @SerializedName("count")
     private int count;
@@ -21,6 +21,39 @@ public class Planets {
     private Object previous;
     @SerializedName("results")
     private List<ResultsBean> results;
+
+    public Planets() {
+    }
+
+    protected Planets(Parcel in) {
+        count = in.readInt();
+        next = in.readString();
+        results = in.createTypedArrayList(ResultsBean.CREATOR);
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(count);
+        dest.writeString(next);
+        dest.writeTypedList(results);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Planets> CREATOR = new Creator<Planets>() {
+        @Override
+        public Planets createFromParcel(Parcel in) {
+            return new Planets(in);
+        }
+
+        @Override
+        public Planets[] newArray(int size) {
+            return new Planets[size];
+        }
+    };
 
     public int getCount() {
         return count;
